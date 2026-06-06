@@ -32,7 +32,7 @@ export default function AboutPage() {
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <h2 className="font-serif italic text-3xl text-offwhite mb-6">Marco Ferretti</h2>
+              <h2 className="font-serif font-normal text-3xl text-offwhite mb-6">Marco Ferretti</h2>
               <p className="mb-6">
                 Chefkoch Marco Ferretti bringt über 15 Jahre Erfahrung in unsere Küche. Aufgewachsen in Neapel, wo er von seiner Nonna die Kunst der perfekten Pasta lernte, zog es ihn später nach Freiburg. Hier verfeinerte er sein Handwerk und verband die reiche, sonnenverwöhnte Seele der süditalienischen Küche mit der Präzision und dem Reichtum regionaler badischer Produkte.
               </p>
@@ -41,18 +41,19 @@ export default function AboutPage() {
               </p>
             </FadeIn>
 
+            <FadeIn delay={0.4} className="py-16 md:py-24">
+              <blockquote className="font-serif italic text-3xl md:text-5xl leading-tight text-gold text-center">
+                &quot;Kochen ist ein Akt der Liebe. Und wir lieben, was wir tun.&quot;
+              </blockquote>
+            </FadeIn>
+
             <FadeIn delay={0.4} className="border-t border-b border-white/10 py-12 my-16">
-              <h3 className="font-serif italic text-3xl text-gold mb-6 text-center">Zwei Heimaten auf einem Teller</h3>
+              <h3 className="font-serif font-normal text-3xl text-gold mb-6 text-center">Zwei Heimaten auf einem Teller</h3>
               <p className="text-center">
                 Unsere Philosophie ist einfach: Die Qualität des Gerichts wird durch die Qualität der Zutaten bestimmt. Deshalb beziehen wir unser Fleisch, saisonales Gemüse und frische Kräuter von ausgewählten Erzeugern aus Baden-Württemberg. Gleichzeitig importieren wir jene Dinge direkt aus Italien, die sich nicht ersetzen lassen: feines Olivenöl aus der Toskana, San Marzano Tomaten, echter Parmigiano Reggiano und natürlich unsere Weine.
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.5}>
-              <p className="text-center italic font-serif text-2xl text-offwhite">
-                &quot;Kochen ist ein Akt der Liebe. Und wir lieben, was wir tun.&quot;
-              </p>
-            </FadeIn>
           </div>
         </div>
       </section>

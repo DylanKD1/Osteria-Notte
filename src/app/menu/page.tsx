@@ -50,7 +50,7 @@ const wineData = {
 
 export default function MenuPage() {
   return (
-    <div className="pt-32 pb-24 bg-[#0a0a0a] min-h-screen">
+    <div className="pt-32 pb-24 bg-charcoal min-h-screen">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
         <FadeIn className="text-center mb-24">
           <h1 className="font-serif italic text-5xl md:text-6xl text-offwhite mb-6">Speisekarte</h1>
@@ -60,18 +60,18 @@ export default function MenuPage() {
         <div className="space-y-24">
           {menuData.map((section, idx) => (
             <FadeIn key={section.category} delay={0.1 * idx} className="space-y-10">
-              <h2 className="font-serif italic text-3xl text-gold border-b border-white/10 pb-4">
+              <h2 className="font-serif font-normal text-[32px] text-offwhite border-b border-olive pb-4">
                 {section.category}
               </h2>
               <div className="space-y-8">
                 {section.items.map((item) => (
                   <div key={item.name} className="flex flex-col">
                     <div className="flex justify-between items-baseline mb-2">
-                      <h3 className="text-xl font-medium tracking-wide text-offwhite">{item.name}</h3>
+                      <h3 className="font-serif text-xl font-medium text-offwhite">{item.name}</h3>
                       <div className="hidden sm:block flex-grow border-b border-dashed border-white/20 mx-4 relative top-[-6px]"></div>
-                      <span className="text-gold font-medium">{item.price}</span>
+                      <span className="text-gold font-medium text-right tabular-nums">{item.price}</span>
                     </div>
-                    <p className="text-offwhite/60 text-sm font-light tracking-wide max-w-2xl">{item.description}</p>
+                    <p className="text-[#9a9080] text-sm max-w-2xl">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -79,7 +79,7 @@ export default function MenuPage() {
           ))}
 
           <FadeIn delay={0.4} className="space-y-10 pt-10">
-            <h2 className="font-serif italic text-3xl text-gold border-b border-white/10 pb-4">
+            <h2 className="font-serif font-normal text-[32px] text-offwhite border-b border-olive pb-4">
               Vini
             </h2>
             
@@ -90,13 +90,13 @@ export default function MenuPage() {
                   {wineData.whites.map((wine) => (
                     <div key={wine.name} className="flex flex-col">
                       <div className="flex justify-between items-baseline mb-1">
-                        <span className="text-lg text-offwhite">{wine.name}</span>
-                        <div className="flex space-x-4 text-gold text-sm ml-4">
+                        <span className="font-serif font-medium text-lg text-offwhite">{wine.name}</span>
+                        <div className="flex justify-end space-x-4 text-gold text-sm text-right tabular-nums ml-4">
                           <span>{wine.glass}</span>
                           <span>{wine.bottle}</span>
                         </div>
                       </div>
-                      <span className="text-offwhite/40 text-xs tracking-wider uppercase">{wine.region}</span>
+                      <span className="font-sans text-[#9a9080] text-sm">{wine.region}</span>
                     </div>
                   ))}
                 </div>
@@ -108,13 +108,13 @@ export default function MenuPage() {
                   {wineData.reds.map((wine) => (
                     <div key={wine.name} className="flex flex-col">
                       <div className="flex justify-between items-baseline mb-1">
-                        <span className="text-lg text-offwhite">{wine.name}</span>
-                        <div className="flex space-x-4 text-gold text-sm ml-4">
+                        <span className="font-serif font-medium text-lg text-offwhite">{wine.name}</span>
+                        <div className="flex justify-end space-x-4 text-gold text-sm text-right tabular-nums ml-4">
                           <span>{wine.glass}</span>
                           <span>{wine.bottle}</span>
                         </div>
                       </div>
-                      <span className="text-offwhite/40 text-xs tracking-wider uppercase">{wine.region}</span>
+                      <span className="font-sans text-[#9a9080] text-sm">{wine.region}</span>
                     </div>
                   ))}
                 </div>

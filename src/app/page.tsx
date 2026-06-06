@@ -41,7 +41,7 @@ export default function Home() {
             </Link>
             <Link
               href="/menu"
-              className="border border-white/20 text-offwhite px-10 py-4 tracking-widest uppercase text-sm hover:bg-white hover:text-charcoal transition-all duration-300"
+              className="border border-white/20 text-offwhite px-10 py-4 tracking-widest uppercase text-sm hover:border-gold hover:bg-gold hover:text-charcoal transition-all duration-300"
             >
               Speisekarte
             </Link>
@@ -59,7 +59,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
             <div className="w-full md:w-1/2 order-2 md:order-1">
               <FadeIn>
-                <h2 className="font-serif italic text-4xl md:text-5xl text-gold mb-8">
+                <h2 className="font-serif font-normal text-4xl md:text-5xl text-gold mb-8">
                   Handwerk. Geduld. Geschmack.
                 </h2>
                 <div className="space-y-6 text-offwhite/80 text-lg leading-relaxed font-light text-balance">
@@ -99,10 +99,10 @@ export default function Home() {
       </section>
 
       {/* Signature Dishes */}
-      <section className="py-32 bg-[#0a0a0a]">
+      <section className="py-32 bg-charcoal">
         <div className="container mx-auto px-6 md:px-12">
           <FadeIn className="text-center mb-20">
-            <h2 className="font-serif italic text-4xl md:text-5xl text-offwhite mb-4">Unsere Küche</h2>
+            <h2 className="font-serif font-normal text-4xl md:text-5xl text-offwhite mb-4">Unsere Küche</h2>
             <div className="w-12 h-[1px] bg-gold mx-auto"></div>
           </FadeIn>
 
@@ -128,7 +128,7 @@ export default function Home() {
               }
             ].map((dish, idx) => (
               <FadeIn key={dish.name} delay={idx * 0.2}>
-                <div className="group border border-white/5 bg-charcoal hover:border-gold/30 transition-colors h-full flex flex-col">
+                <div className="group border border-olive bg-surface hover:border-gold transition-colors h-full flex flex-col">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={dish.img}
@@ -141,7 +141,7 @@ export default function Home() {
                   <div className="p-8 flex-grow flex flex-col">
                     <div className="flex justify-between items-start mb-4">
                       <h3 className="font-serif text-xl text-gold">{dish.name}</h3>
-                      <span className="text-offwhite">{dish.price}</span>
+                      <span className="text-gold">{dish.price}</span>
                     </div>
                     <p className="text-offwhite/60 text-sm leading-relaxed mt-auto">
                       {dish.desc}
@@ -164,11 +164,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Opening Hours */}
+      <section className="py-24 bg-charcoal border-t border-olive">
+        <div className="container mx-auto px-6 md:px-12">
+          <FadeIn className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
+            <div>
+              <h2 className="font-serif font-normal text-4xl md:text-5xl text-offwhite mb-8">
+                Öffnungszeiten
+              </h2>
+              <div className="space-y-3 text-offwhite/80">
+                <p>Di–Sa 18:00–23:00</p>
+                <p>So–Mo geschlossen</p>
+              </div>
+            </div>
+            <p className="text-offwhite/70 text-lg leading-relaxed md:pt-3 max-w-lg">
+              Reservierungen empfohlen. Walk-ins willkommen, soweit Plätze verfügbar.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Reserve Section */}
-      <section id="reservieren" className="py-32 bg-charcoal">
+      <section id="reservieren" className="py-32 bg-charcoal border-t border-olive">
         <div className="container mx-auto px-6 md:px-12">
           <FadeIn className="text-center mb-16">
-            <h2 className="font-serif italic text-4xl md:text-5xl text-offwhite mb-4">
+            <h2 className="font-serif font-normal text-4xl md:text-5xl text-offwhite mb-4">
               Reservieren Sie Ihren Tisch
             </h2>
             <div className="w-12 h-[1px] bg-gold mx-auto mb-6"></div>

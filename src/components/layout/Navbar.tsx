@@ -23,6 +23,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Speisekarte", href: "/menu" },
@@ -74,9 +85,10 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden z-50 text-offwhite hover:text-gold transition-colors"
+            className="md:hidden z-50 inline-flex h-11 w-11 items-center justify-center text-offwhite hover:text-gold transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -90,8 +102,8 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-charcoal flex flex-col items-center justify-center min-h-screen"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 z-40 bg-charcoal flex flex-col items-center justify-center min-h-[100svh]"
           >
             <nav className="flex flex-col items-center space-y-8 w-full px-6">
               {navLinks.map((link) => (
@@ -100,7 +112,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    "text-2xl font-serif italic tracking-wider transition-colors hover:text-gold",
+                    "text-4xl font-serif font-normal transition-colors hover:text-gold",
                     pathname === link.href ? "text-gold" : "text-offwhite"
                   )}
                 >

@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         charcoal: "#0e0e0e",
+        surface: "#1a1a1a",
         offwhite: "#f5f0e8",
         gold: {
           DEFAULT: "#b8955a",
@@ -18,8 +19,8 @@ const config: Config = {
         olive: "#2a2a1e",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        serif: ["var(--font-cormorant)", "serif"],
+        sans: ["var(--font-inter)", "Arial", "sans-serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

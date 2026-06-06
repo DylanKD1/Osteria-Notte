@@ -4,12 +4,17 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 const cormorant = Cormorant_Garamond({ 
   subsets: ["latin"], 
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant" 
+  variable: "--font-cormorant",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

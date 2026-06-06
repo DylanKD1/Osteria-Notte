@@ -14,9 +14,15 @@
     @apply font-sans antialiased selection:bg-gold selection:text-charcoal;
   }
 
-  /* Smooth scroll */
   html {
+    background-color: var(--background);
     scroll-behavior: smooth;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #666;
+    opacity: 1;
   }
 
   /* Custom scrollbar */

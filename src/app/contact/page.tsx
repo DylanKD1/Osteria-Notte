@@ -15,7 +15,7 @@ export default function ContactPage() {
           {/* Contact Info */}
           <FadeIn delay={0.2} direction="right" className="space-y-12">
             <div className="space-y-8">
-              <h2 className="font-serif italic text-3xl text-gold mb-8">Wir freuen uns auf Sie</h2>
+              <h2 className="font-serif font-normal text-3xl text-gold mb-8">Wir freuen uns auf Sie</h2>
               
               <div className="flex items-start space-x-6">
                 <MapPin className="text-gold flex-shrink-0 mt-1" size={24} />
@@ -70,7 +70,7 @@ export default function ContactPage() {
             </div>
 
             {/* Map Placeholder */}
-            <div className="w-full aspect-[16/9] bg-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center text-center p-6 mt-8">
+            <div className="w-full aspect-[16/9] bg-charcoal border border-olive flex flex-col items-center justify-center text-center p-6 mt-8">
               <MapPin className="text-gold/50 mb-4" size={32} />
               <p className="text-offwhite/60 font-serif italic text-xl">Google Maps Integration</p>
               <p className="text-offwhite/40 text-sm mt-2">Münsterplatz 7, 79098 Freiburg</p>
@@ -78,8 +78,8 @@ export default function ContactPage() {
           </FadeIn>
 
           {/* Contact Form */}
-          <FadeIn delay={0.4} direction="left" className="bg-[#0a0a0a] p-8 md:p-12 border border-white/5">
-            <h2 className="font-serif italic text-3xl text-gold mb-8">Schreiben Sie uns</h2>
+          <FadeIn delay={0.4} direction="left" className="bg-charcoal p-8 md:p-12 border border-olive">
+            <h2 className="font-serif font-normal text-3xl text-gold mb-8">Schreiben Sie uns</h2>
             <ContactForm />
           </FadeIn>
         </div>

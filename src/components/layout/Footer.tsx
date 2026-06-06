@@ -3,7 +3,7 @@ import { Phone, MapPin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 pt-20 pb-10 text-offwhite/70 text-sm">
+    <footer className="bg-charcoal border-t border-olive pt-20 pb-10 text-offwhite/70 text-sm">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           {/* Column 1: Brand */}
@@ -13,7 +13,13 @@ export default function Footer() {
               <p className="tracking-wide">Dove la notte ha sapore.</p>
             </div>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-gold transition-colors" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/dinavora.digital"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors"
+                aria-label="Instagram"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"

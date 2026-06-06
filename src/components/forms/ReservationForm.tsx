@@ -61,7 +61,7 @@ export default function ReservationForm() {
               name="name" 
               value={formData.name}
               onChange={handleChange}
-              className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
+              className="w-full bg-surface border border-olive px-4 py-3 text-offwhite placeholder:text-[#666] focus:outline-none focus:border-gold transition-colors"
               placeholder="Max Mustermann"
             />
           </div>
@@ -72,7 +72,7 @@ export default function ReservationForm() {
               name="guests" 
               value={formData.guests}
               onChange={handleChange}
-              className="w-full bg-charcoal border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
+              className="w-full bg-surface border border-olive px-4 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
             >
               <option value="">Bitte wählen</option>
               <option value="1">1 Person</option>
@@ -91,7 +91,7 @@ export default function ReservationForm() {
               name="date" 
               value={formData.date}
               onChange={handleChange}
-              className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors [color-scheme:dark]"
+              className="w-full bg-surface border border-olive px-4 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors [color-scheme:dark]"
             />
           </div>
           <div>
@@ -101,7 +101,7 @@ export default function ReservationForm() {
               name="time" 
               value={formData.time}
               onChange={handleChange}
-              className="w-full bg-charcoal border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
+              className="w-full bg-surface border border-olive px-4 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
             >
               <option value="">Bitte wählen</option>
               <option value="17:30">17:30</option>
@@ -125,7 +125,7 @@ export default function ReservationForm() {
             rows={3}
             value={formData.message}
             onChange={handleChange}
-            className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors resize-none"
+            className="w-full bg-surface border border-olive px-4 py-3 text-offwhite placeholder:text-[#666] focus:outline-none focus:border-gold transition-colors resize-none"
             placeholder="Allergien, Anlässe..."
           ></textarea>
         </div>
@@ -133,7 +133,7 @@ export default function ReservationForm() {
         <div className="pt-6 text-center">
           <button 
             type="submit"
-            className="border border-gold text-gold px-12 py-4 tracking-widest uppercase text-sm hover:bg-gold hover:text-charcoal transition-all duration-300 w-full sm:w-auto"
+            className="bg-transparent border border-gold text-gold px-12 py-4 tracking-widest uppercase text-sm hover:bg-gold hover:text-charcoal transition-colors duration-200 w-full sm:w-auto"
           >
             Reservierung anfragen
           </button>
