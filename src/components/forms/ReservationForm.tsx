@@ -61,6 +61,8 @@ export default function ReservationForm() {
               name="name" 
               value={formData.name}
               onChange={handleChange}
+              maxLength={100}
+              required
               className="w-full bg-surface border border-olive px-4 py-3 text-offwhite placeholder:text-[#666] focus:outline-none focus:border-gold transition-colors"
               placeholder="Max Mustermann"
             />
@@ -72,6 +74,7 @@ export default function ReservationForm() {
               name="guests" 
               value={formData.guests}
               onChange={handleChange}
+              required
               className="w-full bg-surface border border-olive px-4 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
             >
               <option value="">Bitte wählen</option>
@@ -91,6 +94,7 @@ export default function ReservationForm() {
               name="date" 
               value={formData.date}
               onChange={handleChange}
+              required
               className="w-full bg-surface border border-olive px-4 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors [color-scheme:dark]"
             />
           </div>
@@ -101,6 +105,7 @@ export default function ReservationForm() {
               name="time" 
               value={formData.time}
               onChange={handleChange}
+              required
               className="w-full bg-surface border border-olive px-4 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
             >
               <option value="">Bitte wählen</option>
@@ -125,6 +130,7 @@ export default function ReservationForm() {
             rows={3}
             value={formData.message}
             onChange={handleChange}
+            maxLength={500}
             className="w-full bg-surface border border-olive px-4 py-3 text-offwhite placeholder:text-[#666] focus:outline-none focus:border-gold transition-colors resize-none"
             placeholder="Allergien, Anlässe..."
           ></textarea>

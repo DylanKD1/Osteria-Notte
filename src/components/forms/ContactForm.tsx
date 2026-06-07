@@ -59,6 +59,8 @@ export default function ContactForm() {
               name="name" 
               value={formData.name}
               onChange={handleChange}
+              maxLength={100}
+              required
               className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
               placeholder="Max Mustermann"
             />
@@ -71,6 +73,8 @@ export default function ContactForm() {
               name="email" 
               value={formData.email}
               onChange={handleChange}
+              maxLength={150}
+              required
               className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors"
               placeholder="max@beispiel.de"
             />
@@ -85,6 +89,8 @@ export default function ContactForm() {
             rows={5}
             value={formData.message}
             onChange={handleChange}
+            maxLength={1000}
+            required
             className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-offwhite focus:outline-none focus:border-gold transition-colors resize-none"
             placeholder="Ihre Nachricht an uns..."
           ></textarea>
