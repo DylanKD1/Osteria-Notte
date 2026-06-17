@@ -66,6 +66,25 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Demo Disclaimer */}
+        <div className="mb-10 border border-amber-400/30 bg-amber-400/5 p-6 text-xs text-offwhite/80 leading-relaxed space-y-3">
+          <p className="text-amber-400 font-semibold text-sm">⚠️ DEMO-WEBSITE</p>
+          <p>
+            Diese Website dient zur Demonstration der Funktionen der Dinavora-Plattform (Tarif Classic) und stellt kein aktives Restaurant oder Unternehmen dar. Restaurantnamen, Speisekarten und Inhalte sind ausschließlich Beispiele.
+          </p>
+          <p>
+            <strong className="text-offwhite">Wichtiger Hinweis:</strong> Diese Website verarbeitet keine Zahlungen. Wenn Sie jedoch im Reservierungsformular eine echte E-Mail-Adresse oder Telefonnummer eingeben, versendet diese Demo eine echte Reservierungsbestätigung per E-Mail, genau wie bei einem echten Kunden. Das ist beabsichtigt: So sehen Sie, wie sich die Plattform im Echtbetrieb verhält.
+          </p>
+          <p>
+            Falls Sie diese Nachricht nicht erhalten möchten, verwenden Sie bitte eine Platzhalter-E-Mail-Adresse/Telefonnummer oder kontaktieren Sie uns für eine geführte Live-Demo.
+          </p>
+          <p>
+            Eingegebene Daten werden ausschließlich zur Demonstration verwendet und auf Anfrage gelöscht — kontaktieren Sie{" "}
+            <a href="mailto:hello@dinavora.com" className="text-gold hover:underline">hello@dinavora.com</a> zur Löschung.
+          </p>
+          <p className="text-offwhite/50">© Dinavora. Alle Rechte vorbehalten.</p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">

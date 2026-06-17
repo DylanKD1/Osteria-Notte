@@ -52,11 +52,21 @@ export default function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="z-50" onClick={() => setIsMobileMenuOpen(false)}>
-            <span className="font-serif italic text-2xl tracking-wide text-offwhite hover:text-gold transition-colors">
-              Osteria Notte
-            </span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/" className="z-50" onClick={() => setIsMobileMenuOpen(false)}>
+              <span className="font-serif italic text-2xl tracking-wide text-offwhite hover:text-gold transition-colors">
+                Osteria Notte
+              </span>
+            </Link>
+            <div className="relative group z-50">
+              <span className="inline-flex items-center gap-1 text-[10px] tracking-widest uppercase font-semibold border border-amber-400/60 text-amber-400 px-2 py-0.5 cursor-default select-none whitespace-nowrap">
+                ⚠️ Demo-Website
+              </span>
+              <div className="absolute left-0 top-full mt-2 z-[100] w-72 bg-charcoal/95 border border-amber-400/30 p-3 text-xs text-offwhite/80 leading-relaxed hidden group-hover:block pointer-events-none shadow-xl">
+                Diese Website ist eine Software-Demonstration und stellt kein aktives Restaurant oder Unternehmen dar.
+              </div>
+            </div>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
