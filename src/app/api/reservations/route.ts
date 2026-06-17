@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-import { prisma } from "@/lib/prisma";
 import { createUnsubscribeToken } from "@/lib/unsubscribe-token";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -154,7 +153,6 @@ export async function POST(req: NextRequest) {
 
   const emailNorm = email.trim().toLowerCase();
 
-  // RFC-5322-ish email sanity check
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailNorm)) {
     return NextResponse.json(
       { error: "Bitte geben Sie eine gültige E-Mail-Adresse an." },
@@ -162,40 +160,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Suppression check — silent: user still sees "thank you"
-  const suppressed = await prisma.emailSuppression.findUnique({
-    where: { email: emailNorm },
-  });
-
-  if (suppressed) {
+  // Gate: no consent → skip email silently
+  if (demoConsent !== true) {
     return NextResponse.json({ ok: true });
   }
 
-  // Persist consent decision (always, so we have an audit record)
-  const consentGranted = demoConsent === true;
-  await prisma.demoConsent.upsert({
-    where: { email: emailNorm },
-    update: {
-      demoConsentGranted: consentGranted,
-      demoConsentAt: consentGranted ? new Date() : null,
-    },
-    create: {
-      email: emailNorm,
-      demoConsentGranted: consentGranted,
-      demoConsentAt: consentGranted ? new Date() : null,
-    },
-  });
-
-  // Gate: no consent → skip email
-  if (!consentGranted) {
-    return NextResponse.json({ ok: true });
-  }
-
-  // Build unsubscribe URL
   const token = createUnsubscribeToken(emailNorm);
   const unsubscribeUrl = `${APP_URL}/api/unsubscribe?token=${token}`;
 
-  // Send confirmation email
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
     to: [emailNorm],
@@ -210,7 +182,6 @@ export async function POST(req: NextRequest) {
 
   if (error) {
     console.error("[reservations] Resend error:", error);
-    // Don't surface internal errors to the user — the submission still "worked"
   }
 
   return NextResponse.json({ ok: true });

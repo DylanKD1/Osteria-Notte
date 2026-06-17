@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import { verifyUnsubscribeToken } from "@/lib/unsubscribe-token";
 
 const APP_URL =
@@ -32,18 +31,8 @@ function htmlPage(title: string, heading: string, body: string): Response {
   </div>
 </body>
 </html>`,
-    {
-      headers: { "Content-Type": "text/html; charset=utf-8" },
-    }
+    { headers: { "Content-Type": "text/html; charset=utf-8" } }
   );
-}
-
-async function suppress(email: string): Promise<void> {
-  await prisma.emailSuppression.upsert({
-    where: { email },
-    update: {},
-    create: { email, reason: "user_requested" },
-  });
 }
 
 /** GET — browser click from email link */
@@ -60,8 +49,6 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  await suppress(email);
-
   return htmlPage(
     "Abgemeldet",
     "Abgemeldet.",
@@ -74,7 +61,7 @@ export async function GET(req: NextRequest) {
   );
 }
 
-/** POST — RFC 8058 one-click unsubscribe from email clients (Gmail, Apple Mail, Yahoo) */
+/** POST — RFC 8058 one-click unsubscribe (Gmail, Apple Mail, Yahoo) */
 export async function POST(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token") ?? "";
   const email = verifyUnsubscribeToken(token);
@@ -82,8 +69,6 @@ export async function POST(req: NextRequest) {
   if (!email) {
     return new NextResponse("Invalid token", { status: 400 });
   }
-
-  await suppress(email);
 
   return new NextResponse("OK", { status: 200 });
 }
