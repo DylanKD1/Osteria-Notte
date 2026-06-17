@@ -123,6 +123,7 @@ export default function ReservationForm() {
             className="mt-0.5 h-4 w-4 flex-shrink-0 cursor-pointer border border-olive bg-surface accent-[#b8955a]"
           />
           <span className="text-sm text-offwhite/80 leading-relaxed group-hover:text-offwhite transition-colors">
+            <span className="text-red-400 mr-0.5">*</span>
             Ich möchte sehen, wie die automatisierte E-Mail in der Praxis
             funktioniert, und willige ein, im Rahmen dieser Demonstration eine
             Test-Nachricht an die von mir angegebene E-Mail-Adresse zu erhalten.
@@ -294,7 +295,7 @@ export default function ReservationForm() {
         <div className="pt-4 text-center">
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !demoConsent}
             className="bg-transparent border border-gold text-gold px-12 py-4 tracking-widest uppercase text-sm hover:bg-gold hover:text-charcoal transition-colors duration-200 w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Wird gesendet …" : "Reservierung anfragen"}
