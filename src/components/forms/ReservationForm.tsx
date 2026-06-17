@@ -38,6 +38,14 @@ export default function ReservationForm() {
     if (error) setError("");
   };
 
+  const canSubmit =
+    demoConsent &&
+    !!formData.name.trim() &&
+    !!formData.email.trim() &&
+    !!formData.date &&
+    !!formData.time &&
+    !!formData.guests;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -295,7 +303,7 @@ export default function ReservationForm() {
         <div className="pt-4 text-center">
           <button
             type="submit"
-            disabled={isSubmitting || !demoConsent}
+            disabled={isSubmitting || !canSubmit}
             className="bg-transparent border border-gold text-gold px-12 py-4 tracking-widest uppercase text-sm hover:bg-gold hover:text-charcoal transition-colors duration-200 w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Wird gesendet …" : "Reservierung anfragen"}
